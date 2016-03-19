@@ -75,6 +75,7 @@ public class ModelBoard extends JPanel {
 	 * @param spots, the possible spots to move to 
 	 ******************************************************************/
 	private void setAvailable(boolean[][] spots) {
+		
 		setRegColor();
 		for (int i = 0; i < 8; i ++)
 			for (int j = 0; j < 8; j++) 
