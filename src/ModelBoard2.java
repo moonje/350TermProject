@@ -22,6 +22,10 @@ public class ModelBoard2 extends JFrame implements ActionListener{
 	 ******************************************************************/
 	public static void main (String[] args){
 		ModelBoard2 brd = new ModelBoard2();
+		JOptionPane.showConfirmDialog(null, 
+			    "This message is for Jacob 3/22",
+			    null,
+			    JOptionPane.YES_NO_OPTION);
 	}
 	
 	/*******************************************************************
