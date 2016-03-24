@@ -63,9 +63,17 @@ public class ModelBoard extends JPanel {
 		
 		for (int i = 0; i < 8; i++)
 			for (int j = 0; j < 8; j++)
-				if (temp[i][j] != null)
+				
+				if (temp[i][j] != null){
+					
 					board[i][j].setText(temp[i][j].getName());
-				else 
+					
+					if (temp[i][j].getColor() == -1)
+						board[i][j].setForeground(Color.RED);
+					else
+						board[i][j].setForeground(Color.BLACK);
+					
+				} else 
 					board[i][j].setText("");
 	}
 	

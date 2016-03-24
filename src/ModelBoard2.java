@@ -22,10 +22,6 @@ public class ModelBoard2 extends JFrame implements ActionListener{
 	 ******************************************************************/
 	public static void main (String[] args){
 		ModelBoard2 brd = new ModelBoard2();
-		JOptionPane.showConfirmDialog(null, 
-			    "This message is for Jacob 3/22",
-			    null,
-			    JOptionPane.YES_NO_OPTION);
 	}
 	
 	/*******************************************************************
@@ -36,9 +32,9 @@ public class ModelBoard2 extends JFrame implements ActionListener{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		model = new ModelBoard();
 		this.getContentPane().add(model);
-		this.setVisible(true);
 		this.setSize(780, 825);
 		this.setupMenus();
+		this.setVisible(true);
 	}
 	
 	/*******************************************************************
