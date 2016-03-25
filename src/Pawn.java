@@ -101,16 +101,6 @@ public class Pawn extends CheckersPiece{
 	}
 
 	/******************************************************************
-	 * Returns the name of the piece 
-	 * 
-	 * @return the name of the piece 
-	 ******************************************************************/
-	@Override
-	String getPiece() {
-		return name; 
-	}
-
-	/******************************************************************
 	 * Returns the color of the piece 
 	 * 
 	 * @return the color of the piece 

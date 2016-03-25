@@ -9,8 +9,6 @@ abstract class CheckersPiece {
 	abstract boolean[][] getMoves(int row, int col, 
 			CheckersPiece[][] board);
 	
-	abstract String getPiece();
-	
 	abstract int getColor();
 	
 	abstract String getName();

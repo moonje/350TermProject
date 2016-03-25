@@ -100,16 +100,6 @@ public class King extends CheckersPiece {
 	}
 
 	/******************************************************************
-	 * Returns the name of the piece 
-	 * 
-	 * @return the name of the piece 
-	 ******************************************************************/
-	@Override
-	public String getPiece() {
-		return name; 
-	}
-
-	/******************************************************************
 	 * Returns the color of the piece 
 	 * 
 	 * @return the color of the piece 
