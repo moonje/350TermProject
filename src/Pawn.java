@@ -45,6 +45,12 @@ public class Pawn extends CheckersPiece{
 			
 			if (row - 1 > 0){
 				
+				//THESE
+				if (board[row][col] == board[6][col] && 
+						board[row - 2][col] == null) {
+					moves[row - 2][col] = true;
+				}
+				
 				//Cannot capture
 				if (board[row - 1][col] == null)
 					moves[row - 1][col] = true; 
@@ -66,6 +72,12 @@ public class Pawn extends CheckersPiece{
 		} else if (color == 1){
 			
 			if (row + 1 < 8){
+				
+				//THIS
+				if (board[row][col] == board[1][col] 
+						&& board[row + 2][col] == null) {
+					moves[row + 2][col] = true;
+				}
 				
 				//Cannot capture 
 				if (board[row+1][col] == null)	
@@ -119,3 +131,4 @@ public class Pawn extends CheckersPiece{
 	}
 
 }
+

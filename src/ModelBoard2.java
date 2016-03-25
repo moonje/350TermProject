@@ -90,3 +90,4 @@ public class ModelBoard2 extends JFrame implements ActionListener{
 		}
 	}
 }
+
