@@ -108,6 +108,8 @@ public class ModelBoard extends JPanel {
 					getClass().getResource("WhiteBishop.png"));
 			wrook = ImageIO.read(
 					getClass().getResource("WhiteRook.png"));
+			wqueen = ImageIO.read(
+					getClass().getResource("WhiteQueen.png"));
 			
 			
 		} catch (Exception e) {
@@ -118,9 +120,13 @@ public class ModelBoard extends JPanel {
 				java.awt.Image.SCALE_SMOOTH);
 		white_Bishop = new ImageIcon(wbishop);
 		
-		wrook = wrook.getScaledInstance (60, 80,
+		wrook = wrook.getScaledInstance(60, 80,
 				java.awt.Image.SCALE_SMOOTH);
 		white_Rook = new ImageIcon(wrook);
+		
+		wqueen = wqueen.getScaledInstance(60, 80,
+				java.awt.Image.SCALE_SMOOTH);
+		white_Queen = new ImageIcon(wqueen);
 		
 		
 		//create the board 
