@@ -2,9 +2,11 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 /***********************************************************************
@@ -26,11 +28,100 @@ public class ModelBoard extends JPanel {
 	
 	/** The Last Column Selected **/
 	public int lcolumn; 
+	
+	ImageIcon white_Bishop; 
+	
+//	ImageIcon white_Bishop = new ImageIcon(/*((new ImageIcon(*/
+//			"src/ChessWhiteBishop.jpg")/*.getImage()).
+//			getScaledInstance(90, 90, java.awt.Image.SCALE_SMOOTH)))*/;
 
+	ImageIcon white_Knight = new ImageIcon(((new ImageIcon(
+			"ChessWhiteKnight.jpg").getImage()).
+			getScaledInstance(90, 90, java.awt.Image.
+					SCALE_SMOOTH)));
+
+	ImageIcon white_Pawn = new ImageIcon(((new ImageIcon(
+			"ChessWhitePawn.png").getImage()).
+			getScaledInstance(90, 90, java.awt.Image.
+					SCALE_SMOOTH)));
+
+	ImageIcon white_King = new ImageIcon(((new ImageIcon(
+			"ChessWhiteKing.jpg").getImage()).
+			getScaledInstance(90, 90, java.awt.Image.
+					SCALE_SMOOTH)));
+
+	ImageIcon white_Queen = new ImageIcon(((new ImageIcon(
+			"ChessWhiteQueen.jpg").getImage()).
+			getScaledInstance(90, 90, java.awt.Image.
+					SCALE_SMOOTH)));
+
+	ImageIcon white_Rook = new ImageIcon(((new ImageIcon(
+			"ChessWhiteRook.jpg").getImage()).
+			getScaledInstance(90, 90, java.awt.Image.
+					SCALE_SMOOTH)));
+
+	ImageIcon black_Pawn = new ImageIcon(((new ImageIcon(
+			"ChessPawnBlack.png").getImage()).
+			getScaledInstance(90, 90, java.awt.Image.
+					SCALE_SMOOTH)));
+
+	ImageIcon black_Bishop = new ImageIcon((new ImageIcon(
+			"ChessBlackBishop.jpg").
+			getImage().getScaledInstance(90,90, java.awt.
+					Image.SCALE_SMOOTH)));
+
+	ImageIcon black_King = new ImageIcon(((new ImageIcon(
+			"ChessBlackKing.jpg").getImage()).
+			getScaledInstance(90, 90, java.awt.Image.
+					SCALE_SMOOTH)));
+
+	ImageIcon black_Queen = new ImageIcon(((new ImageIcon(
+			"ChessBlackQueen.jpg").getImage()).
+			getScaledInstance(90, 90, java.awt.Image.
+					SCALE_SMOOTH)));
+
+	ImageIcon black_Knight = new ImageIcon(((new ImageIcon(
+			"ChessBlackKnight.jpg").getImage()).
+			getScaledInstance(90, 90, java.awt.Image.
+					SCALE_SMOOTH)));
+
+	ImageIcon black_Rook = new ImageIcon(((new ImageIcon(
+			"ChessBlackRook.jpg").getImage()).
+			getScaledInstance(90, 90, java.awt.Image.
+					SCALE_SMOOTH)));
+
+	
 	/*******************************************************************
 	 * Constructor to create the board 
 	 ******************************************************************/
 	public ModelBoard() {
+		
+		Image wbishop = null; 
+		Image wking = null;
+		Image wqueen = null; 
+		Image wrook = null; 
+		Image wknight = null; 
+		Image wpawn = null; 
+		
+		try {
+			wbishop = ImageIO.read(
+					getClass().getResource("WhiteBishop.png"));
+			wrook = ImageIO.read(
+					getClass().getResource("WhiteRook.png"));
+			
+			
+		} catch (Exception e) {
+			System.out.print("Didn't load right");
+		}
+		
+		wbishop = wbishop.getScaledInstance(60, 80, 
+				java.awt.Image.SCALE_SMOOTH);
+		white_Bishop = new ImageIcon(wbishop);
+		
+		wrook = wrook.getScaledInstance (60, 80,
+				java.awt.Image.SCALE_SMOOTH);
+		white_Rook = new ImageIcon(wrook);
+		
 		
 		//create the board 
 		JPanel panel = new JPanel();
@@ -59,23 +150,72 @@ public class ModelBoard extends JPanel {
 	 * Displays the location of the pieces 
 	 ******************************************************************/
 	private void displayBoard() {
-		CheckersPiece[][] temp = chess.getBoard();
 		
-		for (int i = 0; i < 8; i++)
-			for (int j = 0; j < 8; j++)
-				
-				if (temp[i][j] != null){
-					
-					board[i][j].setText(temp[i][j].getName());
-					
-					if (temp[i][j].getColor() == -1)
-						board[i][j].setForeground(Color.RED);
-					else
-						board[i][j].setForeground(Color.BLACK);
-					
-				} else 
-					board[i][j].setText("");
-	}
+		CheckersPiece[][] temp = chess.getBoard();
+
+		for (int i = 0; i < 8; i++) {
+			for (int j = 0; j < 8; j++) {
+				if (temp[i][j] != null) {
+					if (temp[i][j].getName().equals("King")) {
+						if (temp[i][j].getColor() == -1) {
+							board[i][j].setIcon(black_King);
+						} else
+							board[i][j].setIcon(white_King);
+					}
+					if (temp[i][j].getName().equals("Queen")) {
+						if (temp[i][j].getColor() == -1) {
+							board[i][j].setIcon(black_Queen);
+						} else
+							board[i][j].setIcon(white_Queen);
+					}
+					if (temp[i][j].getName().equals("Pawn")) {
+						if (temp[i][j].getColor() == -1) {
+							board[i][j].setIcon(black_Pawn);
+						} else
+							board[i][j].setIcon(white_Pawn);
+					}
+					if (temp[i][j].getName().equals("Rook")) {
+							if (temp[i][j].getColor() == -1) {
+								board[i][j].setIcon(black_Rook);
+							} else
+								board[i][j].setIcon(white_Rook);
+						}
+					if (temp[i][j].getName().equals("Bishop")) {
+							if (temp[i][j].getColor() == -1) {
+								board[i][j].setIcon(black_Bishop);
+							} else
+								board[i][j].setIcon(white_Bishop);
+							}
+					if (temp[i][j].getName().equals("Knight")) {
+							if (temp[i][j].getColor() == -1) {
+									board[i][j].setIcon(black_Knight);
+							} else
+									board[i][j].setIcon(white_Knight);
+							}
+
+					} else {
+						board[i][j].setIcon(null);
+					}
+				}
+			}
+		}
+
+//		CheckersPiece[][] temp = chess.getBoard();
+//		
+//		for (int i = 0; i < 8; i++)
+//			for (int j = 0; j < 8; j++)
+//				
+//				if (temp[i][j] != null){
+//					
+//					board[i][j].setText(temp[i][j].getName());
+//					
+//					if (temp[i][j].getColor() == -1)
+//						board[i][j].setForeground(Color.RED);
+//					else
+//						board[i][j].setForeground(Color.BLACK);
+//					
+//				} else 
+//					board[i][j].setText("");
 	
 	/*******************************************************************
 	 * Displays the possible moves of the selected piece 
