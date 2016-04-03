@@ -29,66 +29,19 @@ public class ModelBoard extends JPanel {
 	/** The Last Column Selected **/
 	public int lcolumn; 
 	
+	/** The Chess Piece Images **/
 	ImageIcon white_Bishop; 
-	
-//	ImageIcon white_Bishop = new ImageIcon(/*((new ImageIcon(*/
-//			"src/ChessWhiteBishop.jpg")/*.getImage()).
-//			getScaledInstance(90, 90, java.awt.Image.SCALE_SMOOTH)))*/;
-
-	ImageIcon white_Knight = new ImageIcon(((new ImageIcon(
-			"ChessWhiteKnight.jpg").getImage()).
-			getScaledInstance(90, 90, java.awt.Image.
-					SCALE_SMOOTH)));
-
-	ImageIcon white_Pawn = new ImageIcon(((new ImageIcon(
-			"ChessWhitePawn.png").getImage()).
-			getScaledInstance(90, 90, java.awt.Image.
-					SCALE_SMOOTH)));
-
-	ImageIcon white_King = new ImageIcon(((new ImageIcon(
-			"ChessWhiteKing.jpg").getImage()).
-			getScaledInstance(90, 90, java.awt.Image.
-					SCALE_SMOOTH)));
-
-	ImageIcon white_Queen = new ImageIcon(((new ImageIcon(
-			"ChessWhiteQueen.jpg").getImage()).
-			getScaledInstance(90, 90, java.awt.Image.
-					SCALE_SMOOTH)));
-
-	ImageIcon white_Rook = new ImageIcon(((new ImageIcon(
-			"ChessWhiteRook.jpg").getImage()).
-			getScaledInstance(90, 90, java.awt.Image.
-					SCALE_SMOOTH)));
-
-	ImageIcon black_Pawn = new ImageIcon(((new ImageIcon(
-			"ChessPawnBlack.png").getImage()).
-			getScaledInstance(90, 90, java.awt.Image.
-					SCALE_SMOOTH)));
-
-	ImageIcon black_Bishop = new ImageIcon((new ImageIcon(
-			"ChessBlackBishop.jpg").
-			getImage().getScaledInstance(90,90, java.awt.
-					Image.SCALE_SMOOTH)));
-
-	ImageIcon black_King = new ImageIcon(((new ImageIcon(
-			"ChessBlackKing.jpg").getImage()).
-			getScaledInstance(90, 90, java.awt.Image.
-					SCALE_SMOOTH)));
-
-	ImageIcon black_Queen = new ImageIcon(((new ImageIcon(
-			"ChessBlackQueen.jpg").getImage()).
-			getScaledInstance(90, 90, java.awt.Image.
-					SCALE_SMOOTH)));
-
-	ImageIcon black_Knight = new ImageIcon(((new ImageIcon(
-			"ChessBlackKnight.jpg").getImage()).
-			getScaledInstance(90, 90, java.awt.Image.
-					SCALE_SMOOTH)));
-
-	ImageIcon black_Rook = new ImageIcon(((new ImageIcon(
-			"ChessBlackRook.jpg").getImage()).
-			getScaledInstance(90, 90, java.awt.Image.
-					SCALE_SMOOTH)));
+	ImageIcon white_Knight;
+	ImageIcon white_Pawn;
+	ImageIcon white_King;
+	ImageIcon white_Queen;
+	ImageIcon white_Rook;
+	ImageIcon black_Pawn;
+	ImageIcon black_Bishop;
+	ImageIcon black_King;
+	ImageIcon black_Queen;
+	ImageIcon black_Knight;
+	ImageIcon black_Rook;
 
 	
 	/*******************************************************************
@@ -110,23 +63,42 @@ public class ModelBoard extends JPanel {
 					getClass().getResource("WhiteRook.png"));
 			wqueen = ImageIO.read(
 					getClass().getResource("WhiteQueen.png"));
+			wknight = ImageIO.read(
+					getClass().getResource("WhiteKnight.png"));
+			wpawn = ImageIO.read(
+					getClass().getResource("WhitePawn.png"));
+			wking = ImageIO.read(
+					getClass().getResource("WhiteKing.png"));
+			
 			
 			
 		} catch (Exception e) {
-			System.out.print("Didn't load right");
+			System.out.print("One or more images not loaded");
 		}
 		
-		wbishop = wbishop.getScaledInstance(40, 75, 
+		wbishop = wbishop.getScaledInstance(60, 85, 
 				java.awt.Image.SCALE_SMOOTH);
 		white_Bishop = new ImageIcon(wbishop);
 		
-		wrook = wrook.getScaledInstance(40, 65,
+		wrook = wrook.getScaledInstance(60, 80,
 				java.awt.Image.SCALE_SMOOTH);
 		white_Rook = new ImageIcon(wrook);
 		
-		wqueen = wqueen.getScaledInstance(45, 80,
+		wqueen = wqueen.getScaledInstance(55, 90,
 				java.awt.Image.SCALE_SMOOTH);
 		white_Queen = new ImageIcon(wqueen);
+		
+		wknight = wknight.getScaledInstance(50, 80, 
+				java.awt.Image.SCALE_SMOOTH);
+		white_Knight = new ImageIcon(wknight);
+		
+		wpawn = wpawn.getScaledInstance(50, 80, 
+				java.awt.Image.SCALE_SMOOTH);
+		white_Pawn = new ImageIcon(wpawn);
+		
+		wking = wking.getScaledInstance(50, 80, 
+				java.awt.Image.SCALE_SMOOTH);
+		white_King = new ImageIcon(wking);
 		
 		
 		//create the board 
@@ -257,7 +229,7 @@ public class ModelBoard extends JPanel {
 		for (int j = 0; j < 8; j = j + 2)
 			for (int i = 0; i < 8; i ++){
 				if (i % 2 == 0)
-					board[i][j].setBackground(Color.GRAY);
+					board[i][j].setBackground(Color.DARK_GRAY);
 				else 
 					board[i][j].setBackground(Color.WHITE);
 			}
@@ -265,7 +237,7 @@ public class ModelBoard extends JPanel {
 		for (int j = 1; j < 8; j = j + 2)
 			for (int i = 0; i < 8; i ++){
 				if (i % 2 == 1)
-					board[i][j].setBackground(Color.GRAY);
+					board[i][j].setBackground(Color.DARK_GRAY);
 				else 
 					board[i][j].setBackground(Color.WHITE);
 			}
