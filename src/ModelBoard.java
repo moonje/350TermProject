@@ -56,6 +56,13 @@ public class ModelBoard extends JPanel {
 		Image wknight = null; 
 		Image wpawn = null; 
 		
+		Image bbishop = null; 
+		Image bking = null;
+		Image bqueen = null; 
+		Image brook = null; 
+		Image bknight = null; 
+		Image bpawn = null;
+		
 		try {
 			wbishop = ImageIO.read(
 					getClass().getResource("WhiteBishop.png"));
@@ -70,11 +77,24 @@ public class ModelBoard extends JPanel {
 			wking = ImageIO.read(
 					getClass().getResource("WhiteKing.png"));
 			
-			
+			bbishop = ImageIO.read(
+					getClass().getResource("BlackBishop.png"));
+			brook = ImageIO.read(
+					getClass().getResource("BlackRook.png"));
+			bqueen = ImageIO.read(
+					getClass().getResource("BlackQueen.png"));
+			bknight = ImageIO.read(
+					getClass().getResource("BlackKnight.png"));
+			bpawn = ImageIO.read(
+					getClass().getResource("BlackPawn.png"));
+			bking = ImageIO.read(
+					getClass().getResource("BlackKing.png"));
 			
 		} catch (Exception e) {
 			System.out.print("One or more images not loaded");
 		}
+		
+		//white pieces 
 		
 		wbishop = wbishop.getScaledInstance(60, 85, 
 				java.awt.Image.SCALE_SMOOTH);
@@ -99,6 +119,32 @@ public class ModelBoard extends JPanel {
 		wking = wking.getScaledInstance(50, 80, 
 				java.awt.Image.SCALE_SMOOTH);
 		white_King = new ImageIcon(wking);
+		
+		//black pieces 
+		
+		bbishop = bbishop.getScaledInstance(60, 85, 
+				java.awt.Image.SCALE_SMOOTH);
+		black_Bishop = new ImageIcon(bbishop);
+		
+		brook = brook.getScaledInstance(60, 80,
+				java.awt.Image.SCALE_SMOOTH);
+		black_Rook = new ImageIcon(brook);
+		
+		bqueen = bqueen.getScaledInstance(55, 90,
+				java.awt.Image.SCALE_SMOOTH);
+		black_Queen = new ImageIcon(bqueen);
+		
+		bknight = bknight.getScaledInstance(60, 80, 
+				java.awt.Image.SCALE_SMOOTH);
+		black_Knight = new ImageIcon(bknight);
+		
+		bpawn = bpawn.getScaledInstance(50, 80, 
+				java.awt.Image.SCALE_SMOOTH);
+		black_Pawn = new ImageIcon(bpawn);
+		
+		bking = bking.getScaledInstance(50, 80, 
+				java.awt.Image.SCALE_SMOOTH);
+		black_King = new ImageIcon(bking);
 		
 		
 		//create the board 

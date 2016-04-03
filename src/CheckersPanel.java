@@ -5,6 +5,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -20,6 +21,12 @@ public class CheckersPanel extends JPanel {
 	
 	/** The Last Column Selected **/
 	public int lcolumn; 
+	
+	/** Checkers Piece Images **/
+	ImageIcon blackchip; 
+	ImageIcon redchip; 
+	ImageIcon blackking;
+	ImageIcon redking; 
 
 	/*******************************************************************
 	 * Constructor to create the board 
