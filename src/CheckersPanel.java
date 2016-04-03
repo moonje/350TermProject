@@ -2,9 +2,11 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -32,6 +34,42 @@ public class CheckersPanel extends JPanel {
 	 * Constructor to create the board 
 	 ******************************************************************/
 	public CheckersPanel() {
+		
+		Image bchip = null; 
+		Image bkchip = null; 
+		Image rchip = null; 
+		Image rkchip = null; 
+		
+		try {
+			bchip = ImageIO.read(
+					getClass().getResource("BlackChip.png"));
+			bkchip = ImageIO.read(
+					getClass().getResource("BlackKingChip.png"));
+			
+			rchip = ImageIO.read(
+					getClass().getResource("RedChip.png"));
+			rkchip = ImageIO.read(
+					getClass().getResource("RedKingChip.png"));
+			
+		} catch (Exception e) {
+			System.out.print("One or more picture not loaded");
+		}
+		
+		bchip = bchip.getScaledInstance(80, 80, java.awt.Image.
+				SCALE_SMOOTH);
+		blackchip = new ImageIcon(bchip);
+		
+		bkchip = bkchip.getScaledInstance(80, 80, java.awt.Image.
+				SCALE_SMOOTH);
+		blackking = new ImageIcon(bkchip);
+		
+		rchip = rchip.getScaledInstance(80, 80, java.awt.Image.
+				SCALE_SMOOTH);
+		redchip = new ImageIcon(rchip);
+		
+		rkchip = rkchip.getScaledInstance(80, 80, java.awt.Image.
+				SCALE_SMOOTH);
+		redking = new ImageIcon(rkchip);
 		
 		//create the board 
 		JPanel panel = new JPanel();
