@@ -44,12 +44,12 @@ public class CheckersPanel extends JPanel {
 			bchip = ImageIO.read(
 					getClass().getResource("BlackChip.png"));
 			bkchip = ImageIO.read(
-					getClass().getResource("BlackKingChip.png"));
+					getClass().getResource("BlackChipKing.png"));
 			
 			rchip = ImageIO.read(
 					getClass().getResource("RedChip.png"));
 			rkchip = ImageIO.read(
-					getClass().getResource("RedKingChip.png"));
+					getClass().getResource("RedChipKing.png"));
 			
 		} catch (Exception e) {
 			System.out.print("One or more picture not loaded");
@@ -158,7 +158,7 @@ public class CheckersPanel extends JPanel {
 		for (int j = 0; j < 8; j = j + 2)
 			for (int i = 0; i < 8; i ++){
 				if (i % 2 == 0)
-					board[i][j].setBackground(Color.GRAY);
+					board[i][j].setBackground(Color.DARK_GRAY);
 				else 
 					board[i][j].setBackground(Color.WHITE);
 			}
@@ -166,7 +166,7 @@ public class CheckersPanel extends JPanel {
 		for (int j = 1; j < 8; j = j + 2)
 			for (int i = 0; i < 8; i ++){
 				if (i % 2 == 1)
-					board[i][j].setBackground(Color.GRAY);
+					board[i][j].setBackground(Color.DARK_GRAY);
 				else 
 					board[i][j].setBackground(Color.WHITE);
 			}
