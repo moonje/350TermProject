@@ -116,15 +116,15 @@ public class ModelBoard extends JPanel {
 			System.out.print("Didn't load right");
 		}
 		
-		wbishop = wbishop.getScaledInstance(60, 80, 
+		wbishop = wbishop.getScaledInstance(40, 75, 
 				java.awt.Image.SCALE_SMOOTH);
 		white_Bishop = new ImageIcon(wbishop);
 		
-		wrook = wrook.getScaledInstance(60, 80,
+		wrook = wrook.getScaledInstance(40, 65,
 				java.awt.Image.SCALE_SMOOTH);
 		white_Rook = new ImageIcon(wrook);
 		
-		wqueen = wqueen.getScaledInstance(60, 80,
+		wqueen = wqueen.getScaledInstance(45, 80,
 				java.awt.Image.SCALE_SMOOTH);
 		white_Queen = new ImageIcon(wqueen);
 		
