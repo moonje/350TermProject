@@ -105,23 +105,23 @@ public class CheckersPanel extends JPanel {
 				
 				if (temp[i][j] != null){
 					
-					board[i][j].setText(temp[i][j].getName());
-					
-					if (temp[i][j].getColor() == -1) {
-						board[i][j].setForeground(Color.RED);
-					
-						if (((Chip) temp[i][j]).getKing() == true)
-							board[i][j].setForeground(Color.PINK);
-							
-					} else {
-						board[i][j].setForeground(Color.BLACK);
-						
-						if (((Chip) temp[i][j]).getKing() == true)
-							board[i][j].setForeground(Color.CYAN);
+					if (temp[i][j].getColor() == -1 && 
+							!((Chip) temp[i][j]).getKing()){
+						board[i][j].setIcon(redchip);
+					} else if (temp[i][j].getColor() == -1 &&
+							((Chip) temp[i][j]).getKing()){
+						board[i][j].setIcon(redking);
+					} else if (temp[i][j].getColor() == 1 &&
+							((Chip) temp[i][j]).getKing()){
+						board[i][j].setIcon(blackking);
+					} else if (temp[i][j].getColor() == 1 &&
+							!((Chip) temp[i][j]).getKing()){
+						board[i][j].setIcon(blackchip);
 					}
 					
+					
 				} else 
-					board[i][j].setText("");
+					board[i][j].setIcon(null);
 	}
 	
 	/*******************************************************************

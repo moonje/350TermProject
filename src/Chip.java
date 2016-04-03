@@ -8,10 +8,10 @@
 public class Chip extends CheckersPiece {
 
 	/** The Color of the Chip **/
-	int color; 
+	private int color; 
 	
 	/** Whether or not the chip is a king **/
-	boolean king; 
+	public boolean king; 
 	
 	/*******************************************************************
 	 * Creates a new chip with the given color 
