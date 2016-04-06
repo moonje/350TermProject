@@ -34,14 +34,20 @@ public class ModelBoard2 extends JFrame implements ActionListener{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		model = new ModelBoard();
 		check = new CheckersPanel();
-		panel = new JPanel();
+		//panel = new JPanel();
+        JTabbedPane tabbedPane = new JTabbedPane();
+
+        //READ ME: Took out the border layout stuff and separated the two UI's into tabs -JZ
+
+		//panel.setLayout(new BorderLayout());
 		
-		panel.setLayout(new BorderLayout());
-		
-		panel.add(model, BorderLayout.WEST);
-		panel.add(check, BorderLayout.EAST);
-		
-		this.getContentPane().add(panel);
+		//panel.add(model, BorderLayout.WEST);
+		//panel.add(check, BorderLayout.EAST);
+
+        tabbedPane.addTab("Chess", null, model, "Current Chess game");
+        tabbedPane.addTab("Checkers", null, check, "Current Checkers game");
+
+		this.getContentPane().add(tabbedPane);
 		
 		this.setSize(780, 825);
 		this.setupMenus();
