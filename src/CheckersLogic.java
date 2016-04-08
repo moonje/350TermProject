@@ -160,7 +160,20 @@ public class CheckersLogic {
 		
 		//Removes a piece if jumped 
 		if (Math.abs(row1 - row2) == 2)
-			remove(row1 + 1, col1 + 1);
+			
+			if (row1 < row2 && col1 > col2){
+				remove(row1 + 1, col1 - 1);
+				
+			} else if (row1 < row2 && col1 < col2){
+				remove(row1 + 1, col1 + 1);
+				
+			} else if (row1 > row2 && col1 > col2){
+				remove(row1 - 1, col1 - 1);
+				
+			} else if (row1 > row2 && col1 < col2){
+				remove (row1 - 1, col1 + 1);
+			}
+		
 		
 		//increments the turn count
 		turnCount++;

@@ -57,7 +57,7 @@ public class Chip extends CheckersPiece {
 				} else if (board[row + 1][col - 1].getColor() == -color)
 					if (row + 2 < 8 && col - 2 > -1)
 						if(board[row + 2][col - 2] == null)
-							possible[row + 2][col + 2] = true; 
+							possible[row + 2][col - 2] = true; 
 			}
 			
 			if (row - 1 > -1 && col + 1 < 8){
@@ -67,7 +67,7 @@ public class Chip extends CheckersPiece {
 				} else if (board[row - 1][col + 1].getColor() == -color)
 					if (row - 2 > -1 && col + 2 < 8)
 						if(board[row - 2][col + 2] == null)
-							possible[row + 2][col + 2] = true; 
+							possible[row - 2][col + 2] = true; 
 			}
 			
 			if (row - 1 > -1 && col - 1 > -1){
@@ -77,7 +77,7 @@ public class Chip extends CheckersPiece {
 				} else if (board[row - 1][col - 1].getColor() == -color) 
 					if (row - 2 > -1 && col - 2 > -1)
 						if(board[row - 2][col - 2] == null)
-							possible[row - 2][col + 2] = true; 
+							possible[row - 2][col - 2] = true; 
 			}
 			
 			
@@ -101,7 +101,7 @@ public class Chip extends CheckersPiece {
 				} else if (board[row + 1][col - 1].getColor() == -color)
 					if (row + 2 < 8 && col - 2 > -1)
 						if(board[row + 2][col - 2] == null)
-							possible[row + 2][col + 2] = true; 
+							possible[row + 2][col - 2] = true; 
 			}
 					
 			

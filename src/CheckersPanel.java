@@ -206,5 +206,3 @@ public class CheckersPanel extends JPanel {
 		}
 	}
 }
-
-
