@@ -12,9 +12,12 @@ import javax.swing.*;
 public class ModelBoard2 extends JFrame implements ActionListener{
 	
 	private JMenuBar menus; 
-	private JMenu optionMenu;
+	private JMenu chessoptionMenu;
+	private JMenu checkoptionMenu; 
 	private JMenuItem resignChess; 
 	private JMenuItem newChessGame;
+	private JMenuItem newCheckGame; 
+	private JMenuItem resignCheck; 
 	private ModelBoard model; 
 	private CheckersPanel check; 
 	private JPanel panel; 
@@ -49,7 +52,7 @@ public class ModelBoard2 extends JFrame implements ActionListener{
 
 		this.getContentPane().add(tabbedPane);
 		
-		this.setSize(780, 825);
+		this.setSize(780, 850);
 		this.setupMenus();
 		this.setVisible(true);
 	}
@@ -58,18 +61,27 @@ public class ModelBoard2 extends JFrame implements ActionListener{
 	 * Creates the Menus
 	 ******************************************************************/
 	private void setupMenus(){
-		optionMenu = new JMenu("Options");
+		chessoptionMenu = new JMenu("Chess");
+		checkoptionMenu = new JMenu("Checkers");
 		resignChess = new JMenuItem("Resign Chess");
 		newChessGame = new JMenuItem("New Chess Game");
+		resignCheck = new JMenuItem("Resign Checkers");
+		newCheckGame = new JMenuItem("New Checkers Game");
 		
 		resignChess.addActionListener(this);
 		newChessGame.addActionListener(this);
+		resignCheck.addActionListener(this);
+		newCheckGame.addActionListener(this);
 		
-		optionMenu.add(resignChess);
-		optionMenu.add(newChessGame);
+		chessoptionMenu.add(resignChess);
+		chessoptionMenu.add(newChessGame);
+		
+		checkoptionMenu.add(resignCheck);
+		checkoptionMenu.add(newCheckGame);
 		
 		menus = new JMenuBar();
-		menus.add(optionMenu);
+		menus.add(chessoptionMenu);
+		menus.add(checkoptionMenu);
 		setJMenuBar(menus);
 	}
 
@@ -82,9 +94,11 @@ public class ModelBoard2 extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
+		//Chess
+		
 		if (e.getSource() == resignChess){
 			int response = JOptionPane.showConfirmDialog(null, 
-				    "Are you sure you would like to resign?",
+				    "Are you sure you would like to resign Chess?",
 				    null,
 				    JOptionPane.YES_NO_OPTION);
 			
@@ -94,7 +108,8 @@ public class ModelBoard2 extends JFrame implements ActionListener{
 		
 		if (e.getSource() == newChessGame){
 			int response = JOptionPane.showConfirmDialog(null, 
-				    "Are you sure you would like to start a new game?",
+				    "Are you sure you would like to start a new game"
+				    + "of Chess?",
 				    null,
 				    JOptionPane.YES_NO_OPTION);
 			
@@ -102,6 +117,33 @@ public class ModelBoard2 extends JFrame implements ActionListener{
 				this.remove(model);
 				model = new ModelBoard();
 				this.getContentPane().add(model);
+				this.setVisible(true);
+			}
+		}
+		
+		//Checkers
+		
+		if (e.getSource() == resignCheck){
+			int response = JOptionPane.showConfirmDialog(null, 
+				    "Are you sure you would like to resign Checkers?",
+				    null,
+				    JOptionPane.YES_NO_OPTION);
+			
+			if (response == JOptionPane.YES_OPTION)
+				check.disableBoard(false);
+		}
+		
+		if (e.getSource() == newCheckGame){
+			int response = JOptionPane.showConfirmDialog(null, 
+				    "Are you sure you would like to start a new game"
+				    + " of Checkers?",
+				    null,
+				    JOptionPane.YES_NO_OPTION);
+			
+			if (response == JOptionPane.YES_OPTION){
+				this.remove(check);
+				check = new CheckersPanel();
+				this.getContentPane().add(check);
 				this.setVisible(true);
 			}
 		}
