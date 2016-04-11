@@ -135,6 +135,40 @@ public class CheckersLogic {
 	}
 	
 	/*******************************************************************
+	 * Returns whether or not red has won the game
+	 * 
+	 * @return boolean representing if red has won
+	 ******************************************************************/
+	public boolean redWin(){
+		
+		for (int i = 0; i < 8; i++){
+			for (int j = 0; j < 8; j++){
+				if (board[i][j] != null && board[i][j].getColor() == 1)
+					return false; 
+			}
+		}
+		
+		return true; 
+	}
+	
+	/*******************************************************************
+	 * Returns whether or not black has won the game
+	 * 
+	 * @return boolean representing if black has won
+	 ******************************************************************/
+	public boolean blackWin(){
+		
+		for (int i = 0; i < 8; i++){
+			for (int j = 0; j < 8; j++){
+				if (board[i][j] != null && board[i][j].getColor() == -1)
+					return false; 
+			}
+		}
+		
+		return true; 
+	}
+	
+	/*******************************************************************
 	 * Moves the piece at the given position to the other given 
 	 * position. It is assumed that the given move is legal. 
 	 * 
@@ -160,7 +194,20 @@ public class CheckersLogic {
 		
 		//Removes a piece if jumped 
 		if (Math.abs(row1 - row2) == 2)
-			remove(row1 + 1, col1 + 1);
+			
+			if (row1 < row2 && col1 > col2){
+				remove(row1 + 1, col1 - 1);
+				
+			} else if (row1 < row2 && col1 < col2){
+				remove(row1 + 1, col1 + 1);
+				
+			} else if (row1 > row2 && col1 > col2){
+				remove(row1 - 1, col1 - 1);
+				
+			} else if (row1 > row2 && col1 < col2){
+				remove (row1 - 1, col1 + 1);
+			}
+		
 		
 		//increments the turn count
 		turnCount++;

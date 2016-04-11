@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class CheckersPanel extends JPanel {
@@ -202,9 +203,17 @@ public class CheckersPanel extends JPanel {
 					}
 				}
 
+			if (checkers.redWin() == true){
+				displayBoard();
+				disableBoard(false);
+				JOptionPane.showMessageDialog(null, "RED WINS!");
+			} else if (checkers.blackWin() == true){
+				displayBoard();
+				disableBoard(false);
+				JOptionPane.showMessageDialog(null, "BLACK WINS!");
+			}
+			
 			displayBoard();
 		}
 	}
 }
-
-
