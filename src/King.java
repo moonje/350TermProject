@@ -22,7 +22,7 @@ public class King extends CheckersPiece {
 	/******************************************************************
 	 * Creates the King piece with the name "King" and the given color
 	 * 
-	 * @param the color of the piece 
+	 * @param //the color of the piece
 	 ******************************************************************/
 	public King(int color) {
 		name = "King";
@@ -119,3 +119,5 @@ public class King extends CheckersPiece {
 		return name; 
 	}
 }
+
+//TODO: Write method that checks "Check" for all possible moves.

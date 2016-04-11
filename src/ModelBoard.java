@@ -147,7 +147,7 @@ public class ModelBoard extends JPanel {
 		black_King = new ImageIcon(bking);
 		
 		
-		//create the board 
+		//create the board
 		JPanel panel = new JPanel();
 		panel.setLayout(new GridLayout(8,8,5,5));
 		

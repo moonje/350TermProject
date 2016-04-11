@@ -13,11 +13,16 @@ public class ModelBoard2 extends JFrame implements ActionListener{
 	
 	private JMenuBar menus; 
 	private JMenu optionMenu;
-	private JMenuItem resignChess; 
+	private JMenu chessMenu;
+	private JMenu checkersMenu;
+	private JMenuItem resignChess;
 	private JMenuItem newChessGame;
+	private JMenuItem resignCheckers;
+	private JMenuItem newCheckersGame;
 	private ModelBoard model; 
 	private CheckersPanel check; 
-	private JPanel panel; 
+	private JPanel panel;
+	private JTabbedPane tabbedPane;
 
 	/*******************************************************************
 	 * Main method used to create the Chess GUI
@@ -30,26 +35,20 @@ public class ModelBoard2 extends JFrame implements ActionListener{
 	 * Creates a new ModelBoard2
 	 ******************************************************************/
 	public ModelBoard2(){
+
 		this.setTitle("Checkers and Chess");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		model = new ModelBoard();
 		check = new CheckersPanel();
 		//panel = new JPanel();
-        JTabbedPane tabbedPane = new JTabbedPane();
+        tabbedPane = new JTabbedPane();
 
-        //READ ME: Took out the border layout stuff and separated the two UI's into tabs -JZ
-
-		//panel.setLayout(new BorderLayout());
-		
-		//panel.add(model, BorderLayout.WEST);
-		//panel.add(check, BorderLayout.EAST);
-
-        tabbedPane.addTab("Chess", null, model, "Current Chess game");
+		tabbedPane.addTab("Chess", null, model, "Current Chess game");
         tabbedPane.addTab("Checkers", null, check, "Current Checkers game");
 
 		this.getContentPane().add(tabbedPane);
 		
-		this.setSize(780, 825);
+		this.setSize(780, 850);
 		this.setupMenus();
 		this.setVisible(true);
 	}
@@ -59,14 +58,26 @@ public class ModelBoard2 extends JFrame implements ActionListener{
 	 ******************************************************************/
 	private void setupMenus(){
 		optionMenu = new JMenu("Options");
+
+		chessMenu = new JMenu("Chess");
+		checkersMenu = new JMenu("Checkers");
+
 		resignChess = new JMenuItem("Resign Chess");
 		newChessGame = new JMenuItem("New Chess Game");
+		resignCheckers = new JMenuItem("Resign Checkers");
+		newCheckersGame = new JMenuItem("New Checkers Game");
 		
 		resignChess.addActionListener(this);
 		newChessGame.addActionListener(this);
-		
-		optionMenu.add(resignChess);
-		optionMenu.add(newChessGame);
+		resignCheckers.addActionListener(this);
+		newCheckersGame.addActionListener(this);
+
+		optionMenu.add(chessMenu);
+		chessMenu.add(resignChess);
+		chessMenu.add(newChessGame);
+		optionMenu.add(checkersMenu);
+		checkersMenu.add(resignCheckers);
+		checkersMenu.add(newCheckersGame);
 		
 		menus = new JMenuBar();
 		menus.add(optionMenu);
@@ -77,7 +88,7 @@ public class ModelBoard2 extends JFrame implements ActionListener{
 	 * Action Listener that handles what button has been pressed, 
 	 * specifically, what menu item has been chosen
 	 * 
-	 * @param what has been pressed 
+	 * @param //what has been pressed
 	 ******************************************************************/
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -99,9 +110,35 @@ public class ModelBoard2 extends JFrame implements ActionListener{
 				    JOptionPane.YES_NO_OPTION);
 			
 			if (response == JOptionPane.YES_OPTION){
+				this.tabbedPane.remove(model);
 				this.remove(model);
 				model = new ModelBoard();
-				this.getContentPane().add(model);
+				this.tabbedPane.insertTab("Chess", null, model, "Current Chess game", 0);
+				this.tabbedPane.setSelectedIndex(0);
+				this.setVisible(true);
+			}
+		}
+		if (e.getSource() == resignCheckers){
+			int response = JOptionPane.showConfirmDialog(null,
+					"Are you sure you would like to resign?",
+					null,
+					JOptionPane.YES_NO_OPTION);
+
+			if (response == JOptionPane.YES_OPTION)
+				check.disableBoard(false);
+		}
+		if (e.getSource() == newCheckersGame){
+			int response = JOptionPane.showConfirmDialog(null,
+					"Are you sure you would like to start a new game?",
+					null,
+					JOptionPane.YES_NO_OPTION);
+
+			if (response == JOptionPane.YES_OPTION){
+				this.tabbedPane.remove(check);
+				this.remove(check);
+				check = new CheckersPanel();
+				this.tabbedPane.insertTab("Checkers", null, check, "Current Checkers game", 1);
+				this.tabbedPane.setSelectedIndex(1);
 				this.setVisible(true);
 			}
 		}

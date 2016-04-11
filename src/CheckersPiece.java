@@ -4,7 +4,7 @@
  * @author Jennifer Moon
  * @version V2
  **********************************************************************/
-abstract class CheckersPiece {
+abstract class  CheckersPiece {
 	
 	abstract boolean[][] getMoves(int row, int col, 
 			CheckersPiece[][] board);
