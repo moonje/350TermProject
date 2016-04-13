@@ -19,7 +19,7 @@ public class Pawn extends CheckersPiece{
 	/******************************************************************
 	 * Creates the pawn piece with the name "Pawn" and the given color
 	 * 
-	 * @param the color of the piece 
+	 * @param //the color of the piece
 	 ******************************************************************/
 	public Pawn(int color){
 		name = "Pawn";

@@ -16,7 +16,7 @@ public class Rook extends CheckersPiece {
 	/******************************************************************
 	 * Creates the rook piece with the name "Rook" and the given color
 	 * 
-	 * @param the color of the piece 
+	 * @param //the color of the piece
 	 ******************************************************************/
 	public Rook(int color){
 		name = "Rook";
@@ -118,11 +118,11 @@ public class Rook extends CheckersPiece {
 	public int getColor() {
 		return color; 
 	}
-	
+
 	/******************************************************************
-	 * Returns the name of the piece 
-	 * 
-	 * @return the name of the piece 
+	 * Returns the name of the piece
+	 *
+	 * @return the name of the piece
 	 ******************************************************************/
 	@Override
 	String getName() {

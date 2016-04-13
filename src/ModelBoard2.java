@@ -12,7 +12,6 @@ import javax.swing.*;
 public class ModelBoard2 extends JFrame implements ActionListener{
 	
 	private JMenuBar menus;
-	private JMenu optionMenu;
 	private JMenu chessoptionMenu;
 	private JMenu checkoptionMenu;
 	private JMenuItem resignChess; 
@@ -55,7 +54,6 @@ public class ModelBoard2 extends JFrame implements ActionListener{
 	 * Creates the Menus
 	 ******************************************************************/
 	private void setupMenus(){
-		optionMenu = new JMenu("Options");
 
 		chessoptionMenu = new JMenu("Chess");
 		checkoptionMenu = new JMenu("Checkers");

@@ -16,7 +16,7 @@ public class Queen extends CheckersPiece{
 	/******************************************************************
 	 * Creates the queen piece with the name "Queen" and the given color
 	 * 
-	 * @param the color of the piece 
+	 * @param //the color of the piece
 	 ******************************************************************/
 	public Queen(int color){
 		name = "Queen"; 

@@ -141,7 +141,6 @@ public class Chip extends CheckersPiece {
 	public int getColor() {
 		return color; 
 	}
-
 	
 	/*******************************************************************
 	 * Returns the name of the piece 

@@ -17,7 +17,7 @@ public class Knight extends CheckersPiece{
 	 * Creates the knight piece with the name "Knight" and the 
 	 * given color
 	 * 
-	 * @param the color of the piece 
+	 * @param //the color of the piece
 	 ******************************************************************/
 	public Knight(int color){
 		name = "Knight"; 
