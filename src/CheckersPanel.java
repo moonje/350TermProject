@@ -30,6 +30,9 @@ public class CheckersPanel extends JPanel {
 	ImageIcon redchip; 
 	ImageIcon blackking;
 	ImageIcon redking; 
+	
+	/** The Panel with Buttons **/
+	JPanel panel; 
 
 	/*******************************************************************
 	 * Constructor to create the board 
@@ -73,7 +76,7 @@ public class CheckersPanel extends JPanel {
 		redking = new ImageIcon(rkchip);
 		
 		//create the board 
-		JPanel panel = new JPanel();
+		/*JPanel*/ panel = new JPanel();
 		panel.setLayout(new GridLayout(8,8,5,5));
 		
 		checkers = new CheckersLogic();
@@ -171,6 +174,11 @@ public class CheckersPanel extends JPanel {
 				else 
 					board[i][j].setBackground(Color.WHITE);
 			}
+		
+		if (checkers.turnCount % 2 == 0)
+			panel.setBackground(Color.RED);
+		else
+			panel.setBackground(Color.BLACK);
 	}
 
 	/*******************************************************************
@@ -204,11 +212,11 @@ public class CheckersPanel extends JPanel {
 				}
 
 			if (checkers.redWin() == true){
-				displayBoard();
+				//displayBoard();
 				disableBoard(false);
 				JOptionPane.showMessageDialog(null, "RED WINS!");
 			} else if (checkers.blackWin() == true){
-				displayBoard();
+				//displayBoard();
 				disableBoard(false);
 				JOptionPane.showMessageDialog(null, "BLACK WINS!");
 			}

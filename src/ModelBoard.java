@@ -29,6 +29,9 @@ public class ModelBoard extends JPanel {
 	/** The Last Column Selected **/
 	public int lcolumn; 
 	
+	/** The Board of Buttons **/
+	private JPanel panel; 
+	
 	/** The Chess Piece Images **/
 	ImageIcon white_Bishop; 
 	ImageIcon white_Knight;
@@ -148,7 +151,7 @@ public class ModelBoard extends JPanel {
 		
 		
 		//create the board
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		panel.setLayout(new GridLayout(8,8,5,5));
 		
 		chess = new Chess();
@@ -222,24 +225,12 @@ public class ModelBoard extends JPanel {
 					}
 				}
 			}
+		if (chess.turnCount % 2 == 0)
+			panel.setBackground(Color.BLACK);
+		else
+			panel.setBackground(Color.WHITE);
+		
 		}
-
-//		CheckersPiece[][] temp = chess.getBoard();
-//		
-//		for (int i = 0; i < 8; i++)
-//			for (int j = 0; j < 8; j++)
-//				
-//				if (temp[i][j] != null){
-//					
-//					board[i][j].setText(temp[i][j].getName());
-//					
-//					if (temp[i][j].getColor() == -1)
-//						board[i][j].setForeground(Color.RED);
-//					else
-//						board[i][j].setForeground(Color.BLACK);
-//					
-//				} else 
-//					board[i][j].setText("");
 	
 	/*******************************************************************
 	 * Displays the possible moves of the selected piece 

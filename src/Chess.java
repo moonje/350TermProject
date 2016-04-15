@@ -6,34 +6,24 @@
  **********************************************************************/
 public class Chess {
 
-	/**
-	 * Chess Board
-	 **/
+	/** Chess Board **/
 	private CheckersPiece[][] board;
 
-	/**
-	 * Row of Selected Piece
-	 **/
+	/** Row of Selected Piece **/
 	int row;
 
-	/**
-	 * Column of Selected Piece
-	 **/
+	/** Column of Selected Piece **/
 	int col;
 
-	/**
-	 * Current Possible Moves
-	 **/
+	/** Current Possible Moves**/
 	boolean[][] possible;
 
 	boolean blackCheck;
 
 	boolean whiteCheck;
 
-	/**
-	 * Turn Count
-	 **/
-	int turnCount;
+	/** Turn Count **/
+	public int turnCount;
 
 	//White = 1, top
 	//Black = -1, bottom

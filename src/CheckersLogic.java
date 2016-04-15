@@ -14,7 +14,7 @@ public class CheckersLogic {
 	boolean[][] possible; 
 	
 	/** Turn Count **/
-	int turnCount; 
+	public int turnCount; 
 	
 	/*******************************************************************
 	 * Constructor used to create a new game of Checkers with the pieces 
