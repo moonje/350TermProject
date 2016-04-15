@@ -21,6 +21,8 @@ public class ModelBoard2 extends JFrame implements ActionListener{
 	private ModelBoard model; 
 	private CheckersPanel check;
 	private JTabbedPane tabbedPane;
+	
+	private JMenu options; 
 
 	/*******************************************************************
 	 * Main method used to create the Chess GUI
@@ -40,7 +42,8 @@ public class ModelBoard2 extends JFrame implements ActionListener{
 		check = new CheckersPanel();
         tabbedPane = new JTabbedPane();
 
-        tabbedPane.addTab("Checkers", null, check, "Current Checkers game");
+        tabbedPane.addTab("Checkers", null, check, 
+        		"Current Checkers game");
 		tabbedPane.addTab("Chess", null, model, "Current Chess game");
 
 		this.getContentPane().add(tabbedPane);
@@ -64,6 +67,9 @@ public class ModelBoard2 extends JFrame implements ActionListener{
 		resignChess.addActionListener(this);
 		newChessGame.addActionListener(this);
 
+		options = new JMenu("Options");
+		
+		
 		chessoptionMenu = new JMenu("Chess");
 		checkoptionMenu = new JMenu("Checkers");
 		resignChess = new JMenuItem("Resign Chess");
@@ -82,9 +88,11 @@ public class ModelBoard2 extends JFrame implements ActionListener{
 		checkoptionMenu.add(resignCheck);
 		checkoptionMenu.add(newCheckGame);
 		
+		options.add(chessoptionMenu);
+		options.add(checkoptionMenu);
+		
 		menus = new JMenuBar();
-		menus.add(checkoptionMenu);
-		menus.add(chessoptionMenu);
+		menus.add(options);
 		setJMenuBar(menus);
 	}
 
@@ -120,7 +128,8 @@ public class ModelBoard2 extends JFrame implements ActionListener{
 				this.tabbedPane.remove(model);
 				this.remove(model);
 				model = new ModelBoard();
-				this.tabbedPane.insertTab("Chess", null, model, "Current Chess game", 1);
+				this.tabbedPane.insertTab("Chess", null, model, 
+						"Current Chess game", 1);
 				this.tabbedPane.setSelectedIndex(1);
 				this.setVisible(true);
 			}
@@ -149,7 +158,8 @@ public class ModelBoard2 extends JFrame implements ActionListener{
 				this.tabbedPane.remove(check);
 				this.remove(check);
 				check = new CheckersPanel();
-				this.tabbedPane.insertTab("Checkers", null, check, "Current Checkers game", 0);
+				this.tabbedPane.insertTab("Checkers", null, check, 
+						"Current Checkers game", 0);
 				this.tabbedPane.setSelectedIndex(0);
 				this.setVisible(true);
 			}

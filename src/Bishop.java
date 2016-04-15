@@ -14,7 +14,7 @@ public class Bishop extends CheckersPiece{
 	
 	/* Color of Piece */
 	private int color; 
-	
+		
 	/******************************************************************
 	 * Creates the bishop piece with the name "Bishop" and the given 
 	 * color
