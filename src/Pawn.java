@@ -25,6 +25,13 @@ public class Pawn extends CheckersPiece{
 		name = "Pawn";
 		this.color = color; 
 	}
+	/******************************************************************
+	 * Creates a "null pawn" that serves as a placeholder for the stack
+	 ******************************************************************/
+	public Pawn(){
+		name = "";
+		this.color = 0;
+	}
 
 	/******************************************************************
 	 * Returns an array of type boolean listing the possible places 

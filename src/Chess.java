@@ -1,5 +1,6 @@
 import javax.swing.JOptionPane;
-
+import java.awt.*;
+import java.util.Stack;
 /***********************************************************************
  * Chess controller class
  * 
@@ -27,6 +28,13 @@ public class Chess {
 	/** Turn Count **/
 	public int turnCount;
 
+	/** Stack containing piece information **/
+	Stack<CheckersPiece> pieceList;
+
+	/** Stack containing coordinates of moves **/
+	Stack<Point> coordsList;
+
+
 	//White = 1, top
 	//Black = -1, bottom
 
@@ -39,6 +47,9 @@ public class Chess {
 		whiteCheck = false;
 		turnCount = 0;
 		board = new CheckersPiece[8][8];
+
+		pieceList = new Stack<>();
+		coordsList = new Stack<>();
 
 		board[0][0] = new Rook(1);
 		board[0][1] = new Knight(1);
@@ -156,6 +167,41 @@ public class Chess {
 	}
 
 	/*******************************************************************
+	 * Adds a new chess piece of the given type and color at the given position
+	 *
+	 * @param row, the row of the piece
+	 * @param col, the column of the piece
+	 * @param color, which is color the piece is
+	 * @param type, parsed in the method to determine what type the piece is
+	 ******************************************************************/
+	public void add(int row, int col, int color, String type){
+		if (type == "Bishop"){
+			remove(row, col);
+			board[row][col] = new Bishop(color);
+		}
+		if (type == "King"){
+			remove(row, col);
+			board[row][col] = new King(color);
+		}
+		if (type == "Knight"){
+			remove(row, col);
+			board[row][col] = new Knight(color);
+		}
+		if (type == "Pawn"){
+			remove(row, col);
+			board[row][col] = new Pawn(color);
+		}
+		if (type == "Queen"){
+			remove(row, col);
+			board[row][col] = new Queen(color);
+		}
+		if (type == "Rook") {
+			remove(row, col);
+			board[row][col] = new Rook(color);
+		}
+	}
+
+	/*******************************************************************
 	 * Moves the piece at the given position to the other given
 	 * position. It is assumed that the given move is legal.
 	 *
@@ -165,6 +211,22 @@ public class Chess {
 	 * @param col2, the column to be moved to
 	 ******************************************************************/
 	public void move(int row1, int col1, int row2, int col2) {
+		//pushes both pieces onto the stack;
+
+		if(board[row2][col2] == null){
+			pieceList.push(new Pawn());
+		} else {
+			pieceList.push(board[row2][col2]);
+		}
+
+		if(board[row1][col1] == null){
+			pieceList.push(new Pawn());
+		} else {
+			pieceList.push(board[row1][col1]);
+		}
+
+		coordsList.push(new Point(row2, col2));
+		coordsList.push(new Point(row1, col1));
 
 		//move to the new position
 		board[row2][col2] = board[row1][col1];
@@ -178,6 +240,34 @@ public class Chess {
 
 		//increments the turn count
 		turnCount++;
+	}
+
+	/*******************************************************************
+	 * Undoes the previous move.
+	 ******************************************************************/
+	public void undo(){
+		if (!pieceList.isEmpty()) {
+			CheckersPiece tile1 = pieceList.pop();
+			CheckersPiece tile2 = pieceList.pop();
+			Point coords1 = coordsList.pop();
+			Point coords2 = coordsList.pop();
+			if (tile2.getColor() != 0) {
+				add(coords2.x, coords2.y, tile2.getColor(), tile2.getName());
+			} else {
+				remove(coords2.x, coords2.y);
+			}
+
+			if (tile1.getColor() != 0) {
+				add(coords1.x, coords1.y, tile1.getColor(), tile1.getName());
+			} else {
+				remove(coords1.x, coords1.y);
+			}
+
+			if (tile2.getColor() != 0) {
+				add(coords2.x, coords2.y, tile2.getColor(), tile2.getName());
+			}
+			turnCount--;
+		}
 	}
 
 	public void kingCheck(int color) {
@@ -206,22 +296,18 @@ public class Chess {
 				}
 			}
 		}
-		if (found && whiteCheck && color == 1){ 
-			//System.out.print("White king is in check! \n"); 
+		if (found && whiteCheck && color == 1){
 			JOptionPane.showMessageDialog(null, 
 					"White King is in Check!");
 		} else { 
 			whiteCheck = false; 
 		}
-		System.out.print(whiteCheck);
 		
-		if (found && blackCheck && color == -1){ 
-			//System.out.print("Black king is in check! \n"); 
+		if (found && blackCheck && color == -1){
 			JOptionPane.showMessageDialog(null, 
 					"Black King is in Check!");
 		} else { 
 			blackCheck = false; 
 		}
-		System.out.print(blackCheck);
 	}
 }

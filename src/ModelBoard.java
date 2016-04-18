@@ -171,12 +171,13 @@ public class ModelBoard extends JPanel {
 		add(panel, BorderLayout.CENTER);
 		displayBoard();
 		setRegColor();
+		setBackgroundColor();
 	}
 	
 	/*******************************************************************
 	 * Displays the location of the pieces 
 	 ******************************************************************/
-	private void displayBoard() {
+	public void displayBoard() {
 		
 		CheckersPiece[][] temp = chess.getBoard();
 
@@ -225,11 +226,6 @@ public class ModelBoard extends JPanel {
 					}
 				}
 			}
-		if (chess.turnCount % 2 == 0)
-			panel.setBackground(Color.BLACK);
-		else
-			panel.setBackground(Color.WHITE);
-		
 		}
 	
 	/*******************************************************************
@@ -281,6 +277,17 @@ public class ModelBoard extends JPanel {
 	}
 
 	/*******************************************************************
+	 * Sets the background color based on whose turn it is.
+	 ******************************************************************/
+	public void setBackgroundColor(){
+		if (chess.turnCount % 2 == 0)
+			panel.setBackground(Color.BLACK);
+		else
+			panel.setBackground(Color.WHITE);
+	}
+
+
+	/*******************************************************************
 	 * Action Listener that handles what button has been pressed 
 	 ******************************************************************/
 	private class ButtonListener implements ActionListener {
@@ -306,6 +313,7 @@ public class ModelBoard extends JPanel {
 						} else {
 							chess.move(lrow, lcolumn, i, j);
 							setRegColor();
+							setBackgroundColor();
 						}	
 					}
 				}

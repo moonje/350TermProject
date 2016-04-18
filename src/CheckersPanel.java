@@ -13,10 +13,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class CheckersPanel extends JPanel {
-	/** The Chess Board **/
+	/** The Ch Board **/
 	public JButton[][] board;
 	
-	/** The Chess Game **/
+	/** The Checkers Game **/
 	public CheckersLogic checkers; 
 	
 	/** The Last Row Selected **/
@@ -96,12 +96,13 @@ public class CheckersPanel extends JPanel {
 		add(panel, BorderLayout.CENTER);
 		displayBoard();
 		setRegColor();
+		setBackgroundColor();
 	}
 	
 	/*******************************************************************
 	 * Displays the location of the pieces 
 	 ******************************************************************/
-	private void displayBoard() {
+	public void displayBoard() {
 		CheckersPiece[][] temp = checkers.getBoard();
 		
 		for (int i = 0; i < 8; i++)
@@ -174,7 +175,12 @@ public class CheckersPanel extends JPanel {
 				else 
 					board[i][j].setBackground(Color.WHITE);
 			}
-		
+	}
+
+	/*******************************************************************
+	 * Sets the background color to correspond to whose turn it is.
+	 ******************************************************************/
+	public void setBackgroundColor(){
 		if (checkers.turnCount % 2 == 0)
 			panel.setBackground(Color.RED);
 		else
@@ -220,7 +226,7 @@ public class CheckersPanel extends JPanel {
 				disableBoard(false);
 				JOptionPane.showMessageDialog(null, "BLACK WINS!");
 			}
-			
+			setBackgroundColor();
 			displayBoard();
 		}
 	}

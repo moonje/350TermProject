@@ -11,8 +11,20 @@ public class Chip extends CheckersPiece {
 	private int color; 
 	
 	/** Whether or not the chip is a king **/
-	public boolean king; 
-	
+	private boolean king;
+
+	/** How many times the chip has moved (for use with undo) **/
+	private int moveCount;
+
+	/** When the chip turned into a king (if at all) **/
+	private int kingCount;
+	/*******************************************************************
+	 * Creates a "null chip" for use in the undo function
+	 ******************************************************************/
+	public Chip(){
+		color = 0;
+		king = false;
+	}
 	/*******************************************************************
 	 * Creates a new chip with the given color 
 	 * 
@@ -20,7 +32,21 @@ public class Chip extends CheckersPiece {
 	 ******************************************************************/
 	public Chip(int color){
 		this.color = color; 
-		king = false; 
+		king = false;
+		moveCount = 0;
+	}
+
+	/*******************************************************************
+	 * Creates a new chip with the given color and king status
+	 *
+	 * @param color, the color of the chip
+	 * @param k, whether or not chip is a king
+	 ******************************************************************/
+
+	public Chip(int color, boolean k){
+		this.color = color;
+		king = k;
+		moveCount = 0;
 	}
 	
 	/*******************************************************************
@@ -151,12 +177,45 @@ public class Chip extends CheckersPiece {
 	public String getName() {
 		return "Chip";
 	}
-	
+
+	/*******************************************************************
+	 * Returns how many times the piece has moved
+	 *
+	 * @return how many times the piece has moved
+	 ******************************************************************/
+
+	public int getMoveCount() { return moveCount; }
+
+	/*******************************************************************
+	 * Sets how many times the piece has moved
+	 *
+	 * @param //how many times the piece has moved
+	 ******************************************************************/
+
+	public void setMoveCount(int m){ this.moveCount = m; }
+
+	/*******************************************************************
+	 * Returns how many times the piece has moved
+	 *
+	 * @return how many times the piece has moved
+	 ******************************************************************/
+
+	public int getKingCount() { return kingCount; }
+
+	/*******************************************************************
+	 * Sets how many moves it took until the piece turned into a king
+	 *
+	 * @param //how many moves it took until the piece turned into a king
+	 ******************************************************************/
+
+	public void setKingCount(int k) {this.kingCount = k; }
+
 	/*******************************************************************
 	 * Returns whether or not a piece is a king
 	 * 
 	 * @return whether or not the piece is a king
 	 ******************************************************************/
+
 	public boolean getKing(){
 		return king; 
 	}

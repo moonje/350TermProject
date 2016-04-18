@@ -76,7 +76,7 @@ public class ModelBoard2 extends JFrame implements ActionListener{
 
 		options = new JMenu("Options");
 		
-		undoCheckers = new JMenuItem("Undo Last Move ");
+		undoCheckers = new JMenuItem("Undo Last Move");
 		undoChess = new JMenuItem("Undo Last Move");
 		
 		
@@ -91,7 +91,9 @@ public class ModelBoard2 extends JFrame implements ActionListener{
 		newChessGame.addActionListener(this);
 		resignCheck.addActionListener(this);
 		newCheckGame.addActionListener(this);
-		
+		undoCheckers.addActionListener(this);
+		undoChess.addActionListener(this);
+
 		chessoptionMenu.add(resignChess);
 		chessoptionMenu.add(newChessGame);
 		chessoptionMenu.add(undoChess);
@@ -120,7 +122,9 @@ public class ModelBoard2 extends JFrame implements ActionListener{
 		//Chess
 		
 		if (e.getSource() == undoChess){
-			//do other stuff 
+			model.chess.undo();
+			model.setBackgroundColor();
+			model.displayBoard();
 		}
 		
 		if (e.getSource() == resignChess){
@@ -154,7 +158,9 @@ public class ModelBoard2 extends JFrame implements ActionListener{
 		//Checkers
 		
 		if (e.getSource() == undoCheckers){
-			//do stuff
+			check.checkers.undo();
+			check.setBackgroundColor();
+			check.displayBoard();
 		}
 		
 		if (e.getSource() == resignCheck){
