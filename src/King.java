@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /***********************************************************************
  * King checkers piece. The king can move one space in any direction; 
  * however, it cannot move into check or adjacent to the other King. 
@@ -91,7 +93,7 @@ public class King extends CheckersPiece {
 					moves[i][j] = false;
 			}
 		}
-
+		
 		return moves;
 	}
 
@@ -111,7 +113,7 @@ public class King extends CheckersPiece {
 	 * @return the name of the piece
 	 ******************************************************************/
 	@Override
-	String getName() {
+	public String getName() {
 		return name;
 	}
 }

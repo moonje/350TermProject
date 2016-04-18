@@ -12,14 +12,21 @@ import javax.swing.*;
 public class ModelBoard2 extends JFrame implements ActionListener{
 	
 	private JMenuBar menus;
+	
 	private JMenu chessoptionMenu;
 	private JMenu checkoptionMenu;
+	
 	private JMenuItem resignChess; 
 	private JMenuItem newChessGame;
 	private JMenuItem resignCheck;
 	private JMenuItem newCheckGame;
+	private JMenuItem undoCheckers;
+	private JMenuItem undoChess; 
+	
 	private ModelBoard model; 
+	
 	private CheckersPanel check;
+	
 	private JTabbedPane tabbedPane;
 	
 	private JMenu options; 
@@ -69,6 +76,9 @@ public class ModelBoard2 extends JFrame implements ActionListener{
 
 		options = new JMenu("Options");
 		
+		undoCheckers = new JMenuItem("Undo Last Move ");
+		undoChess = new JMenuItem("Undo Last Move");
+		
 		
 		chessoptionMenu = new JMenu("Chess");
 		checkoptionMenu = new JMenu("Checkers");
@@ -84,9 +94,11 @@ public class ModelBoard2 extends JFrame implements ActionListener{
 		
 		chessoptionMenu.add(resignChess);
 		chessoptionMenu.add(newChessGame);
+		chessoptionMenu.add(undoChess);
 		
 		checkoptionMenu.add(resignCheck);
 		checkoptionMenu.add(newCheckGame);
+		checkoptionMenu.add(undoCheckers);
 		
 		options.add(chessoptionMenu);
 		options.add(checkoptionMenu);
@@ -106,6 +118,10 @@ public class ModelBoard2 extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		
 		//Chess
+		
+		if (e.getSource() == undoChess){
+			//do other stuff 
+		}
 		
 		if (e.getSource() == resignChess){
 			int response = JOptionPane.showConfirmDialog(null, 
@@ -136,6 +152,10 @@ public class ModelBoard2 extends JFrame implements ActionListener{
 		}
 		
 		//Checkers
+		
+		if (e.getSource() == undoCheckers){
+			//do stuff
+		}
 		
 		if (e.getSource() == resignCheck){
 			int response = JOptionPane.showConfirmDialog(null, 

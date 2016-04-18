@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 /***********************************************************************
  * Chess controller class
  * 
@@ -184,12 +186,15 @@ public class Chess {
 		for (int i = 0; i < 8; i++) {
 			for (int j = 0; j < 8; j++) {
 				if (board[i][j] != null) {
-					if (board[i][j].getName().equals("King") && color == getColorAt(i, j)) {
+					if (board[i][j].getName().equals("King") && 
+							color == getColorAt(i, j)) {
 						for (int k = 0; k < 8; k++) {
 							for (int l = 0; l < 8; l++) {
-								/*finds every piece of opposite color and checks their moveset to see if it hits the
-								kings space*/
-								if (getMoves(k, l)[i][j] && getColorAt(k, l) == (-color)) {
+								/*finds every piece of opposite color 
+								 * and checks their moveset to see if 
+								 * it hits the kings space*/
+								if (getMoves(k, l)[i][j] && 
+										getColorAt(k, l) == (-color)) {
 									found = true;
 									if (color == 1) {
 										whiteCheck = true;
@@ -201,11 +206,22 @@ public class Chess {
 				}
 			}
 		}
-		if (found && whiteCheck && color == 1){ System.out.print("White king is in check! \n"); }
-		else { whiteCheck = false; }
+		if (found && whiteCheck && color == 1){ 
+			//System.out.print("White king is in check! \n"); 
+			JOptionPane.showMessageDialog(null, 
+					"White King is in Check!");
+		} else { 
+			whiteCheck = false; 
+		}
 		System.out.print(whiteCheck);
-		if (found && blackCheck && color == -1){ System.out.print("Black king is in check! \n"); }
-		else { blackCheck = false; }
+		
+		if (found && blackCheck && color == -1){ 
+			//System.out.print("Black king is in check! \n"); 
+			JOptionPane.showMessageDialog(null, 
+					"Black King is in Check!");
+		} else { 
+			blackCheck = false; 
+		}
 		System.out.print(blackCheck);
 	}
 }
