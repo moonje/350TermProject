@@ -92,6 +92,52 @@ public class King extends CheckersPiece {
 				else
 					moves[i][j] = false;
 			}
+			
+					int x = 0;
+		if(board[row][0] != null && board[row][0].getName().equals("Rook")){
+			if(!board[row][0].hasMoved()) {
+				x = 1;
+				while (x <= col && x > 0) {
+					if (board[row][x] == null){
+						x++;
+						continue;
+					}
+					else if(board[row][x].getName().equals("King")) {
+						if (board[row][x].hasMoved()) {
+							break;
+						} else {
+							moves[row][x - 2] = true;
+							break;
+						}
+
+					}
+					else{
+						break;
+					}
+				}
+			}
+		}
+		if(board[row][7] != null && board[row][7].getName().equals("Rook")) {
+			if (!board[row][7].hasMoved()) {
+				x = 6;
+				while (x >= col) {
+					if (board[row][x] == null){
+						x--;
+						continue;
+					}
+					else if(board[row][x].getName().equals("King")) {
+						if (board[row][x].hasMoved()) {
+							break;
+						} else {
+							moves[row][x + 2] = true;
+							break;
+						}
+
+					}else{
+						break;
+					}
+				}
+			}
 		}
 		
 		return moves;
