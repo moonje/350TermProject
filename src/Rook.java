@@ -13,6 +13,8 @@ public class Rook extends CheckersPiece {
 	/* Color of Piece */
 	private int color;
 	
+	public boolean isMoved;
+	
 	/******************************************************************
 	 * Creates the rook piece with the name "Rook" and the given color
 	 * 
@@ -21,6 +23,7 @@ public class Rook extends CheckersPiece {
 	public Rook(int color){
 		name = "Rook";
 		this.color = color; 
+		isMoved = false;
 	}
 	
 	/******************************************************************
@@ -127,5 +130,11 @@ public class Rook extends CheckersPiece {
 	@Override
 	String getName() {
 		return name; 
+	}
+		public boolean hasMoved(){
+		return isMoved;
+	}
+	public void moved(){
+		this.isMoved = true;
 	}
 }
