@@ -161,5 +161,14 @@ public class King extends CheckersPiece {
 	@Override
 	public String getName() {
 		return name;
+	
 	}
+		public void moved(){
+		this.isMoved = true;
+	}
+
+	public boolean hasMoved(){
+		return this.isMoved;
+	}
+
 }
