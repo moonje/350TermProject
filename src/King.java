@@ -16,6 +16,8 @@ public class King extends CheckersPiece {
 
 	/* Color of Piece */
 	private int color;
+	
+	public boolean isMoved;
 
 	/******************************************************************
 	 * Creates the King piece with the name "King" and the given color
