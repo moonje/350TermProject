@@ -212,6 +212,28 @@ public class Chess {
 	 ******************************************************************/
 	public void move(int row1, int col1, int row2, int col2) {
 		//pushes both pieces onto the stack;
+		
+		if(board[row1][col1].getName().equals("King")){
+			board[row1][col1].moved();
+
+			int changeMove = col1-col2;
+
+			if(Math.abs(changeMove) == 2){
+				//moving the right rook
+				if(changeMove < 0){
+					board[row][col2 - 1] = board[row][7];
+					remove(row,7);
+				}
+				else{
+					board[row][col2 + 1] = board[row][0];
+					remove(row, 0);
+				}
+			}
+		}
+		
+		if(board[row1][col1].getName().equals("Rook")){
+			board[row1][col1].moved();
+		}
 
 		if(board[row2][col2] == null){
 			pieceList.push(new Pawn());
