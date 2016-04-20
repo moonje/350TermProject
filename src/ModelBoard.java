@@ -32,6 +32,10 @@ public class ModelBoard extends JPanel {
 	/** The Board of Buttons **/
 	private JPanel panel; 
 	
+	//private JMenuItem save;
+	
+	//public PrintWriter out;
+	
 	/** The Chess Piece Images **/
 	ImageIcon white_Bishop; 
 	ImageIcon white_Knight;
@@ -52,6 +56,8 @@ public class ModelBoard extends JPanel {
 	 ******************************************************************/
 	public ModelBoard() {
 		
+		//ptionMenu = new JMenu("Options");
+		//save = new JMenuITem("Save Game");
 		Image wbishop = null; 
 		Image wking = null;
 		Image wqueen = null; 
@@ -285,6 +291,54 @@ public class ModelBoard extends JPanel {
 		else
 			panel.setBackground(Color.WHITE);
 	}
+// public void actionPerformed(ActionEvent e){	
+// 	if (e.getSource() == save) {
+
+// 			String PieceColor;
+// 			String Delim;
+
+// 			try {
+// 				out = new PrintWriter("ChessSave.txt");
+// 			}
+// 				catch(Exception IoException){
+// 				//add error message
+// 					System.out.println("GAME OVER");
+
+// 			}
+// 			for (int x = 0; x < 8; x++) {
+// 				for (int y = 0; y < 8; y++) {
+
+// 					if(x == 8){
+// 						Delim = "|";
+// 					}
+// 					else{
+// 						Delim = ",";
+// 					}
+
+
+// 					if (board[x][y] != null) {
+// 						if (chess.getColorAt(x, y) == 1) {
+// 							PieceColor = "White";
+// 						}
+// 						else {
+// 							PieceColor = "Black";
+// 						}
+
+// 						//String out = PieceColor + Delim + board[x][y].getName() + Delim;
+// 						out.print(PieceColor + Delim + board[x][y].getName() + Delim);
+// 					}
+// 					else{
+// 						out.print("x" + Delim);
+// 					}
+// 					out.println();
+// 				}
+// 			}
+
+// 			out.close();
+
+// 		}
+// 	}
+	
 
 
 	/*******************************************************************
