@@ -13,6 +13,7 @@ public class Knight extends CheckersPiece{
 	/* Color of Piece */
 	private int color; 
 	
+	public boolean isMoved;
 	/******************************************************************
 	 * Creates the knight piece with the name "Knight" and the 
 	 * given color
@@ -22,6 +23,7 @@ public class Knight extends CheckersPiece{
 	public Knight(int color){
 		name = "Knight"; 
 		this.color = color; 
+		isMoved = false;
 	}
 
 	/******************************************************************
@@ -105,5 +107,13 @@ public class Knight extends CheckersPiece{
 	@Override
 	String getName() {
 		return name; 
+	}
+	
+
+	public boolean hasMoved(){
+		return isMoved;
+	}
+	public void moved(){
+		this.isMoved = true;
 	}
 }
