@@ -14,7 +14,8 @@ public class Bishop extends CheckersPiece{
 	
 	/* Color of Piece */
 	private int color; 
-		
+	
+	public boolean isMoved;
 	/******************************************************************
 	 * Creates the bishop piece with the name "Bishop" and the given 
 	 * color
@@ -24,6 +25,7 @@ public class Bishop extends CheckersPiece{
 	public Bishop(int color){
 		name = "Bishop";
 		this.color = color; 
+		isMoved = false;
 	}
 
 	/******************************************************************
@@ -136,5 +138,13 @@ public class Bishop extends CheckersPiece{
 	@Override
 	String getName() {
 		return name; 
+	}
+	
+
+	public boolean hasMoved(){
+		return isMoved;
+	}
+	public void moved(){
+		this.isMoved = true;
 	}
 }
