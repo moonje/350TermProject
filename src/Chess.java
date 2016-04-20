@@ -87,6 +87,61 @@ public class Chess {
 		board[7][6] = new Knight(-1);
 		board[7][7] = new Rook(-1);
 	}
+**************************************************************
+/*Bad Ai
+*
+*/
+**************************************************************
+	
+	
+	public void RandomAi() {
+		board2 = new ArrayList<String>();
+
+		if (getPlayer() == -1) {
+			return;
+		}
+		for (int x = 0; x < 8; x++) {
+			for (int y = 0; y < 8; y++) {
+				if (getColorAt(x, y) == 1) {
+					board2.add(Integer.toString(x) + Integer.toString(y));
+				}
+			}
+
+		}
+
+		while (board2.size() < 0) {
+			Random random = new Random(board2.size());
+			int r = random.nextInt();
+			String piece = board2.get((r));
+
+			int x =  Integer.parseInt(Character.toString(piece.charAt(0)));
+			int y =  Integer.parseInt(Character.toString(piece.charAt(1)));
+
+			if(getMoves(x,y) == possible){
+				//Get the list of the possible moves
+				board3 = new ArrayList<String>();
+				board3.add(Integer.toString(x) + Integer.toString(y));
+
+				//Get new random number
+				Random random2 = new Random(board3.size());
+				int r2 = random2.nextInt();
+				String moves = board3.get(r2);
+				int x1 = Integer.parseInt(Character.toString(moves.charAt(0)));
+				int y1 = Integer.parseInt(Character.toString(moves.charAt(1)));
+				//dont write over r
+				//random = new Random(list of possible moves.size());
+				//Make the move
+				move(x,y,x1,y1);
+				//Make the call
+				//Break out of this method
+
+				//return;
+			}else {
+				board2.remove(r);
+			}
+		}
+		return;
+	}
 
 	/*******************************************************************
 	 * Returns the board
