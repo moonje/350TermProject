@@ -16,6 +16,7 @@ public class Pawn extends CheckersPiece{
 	/* Color of Piece */
 	private int color; 
 	
+	public boolean isMoved;
 	/******************************************************************
 	 * Creates the pawn piece with the name "Pawn" and the given color
 	 * 
@@ -24,6 +25,7 @@ public class Pawn extends CheckersPiece{
 	public Pawn(int color){
 		name = "Pawn";
 		this.color = color; 
+		isMoved = false;
 	}
 	/******************************************************************
 	 * Creates a "null pawn" that serves as a placeholder for the stack
@@ -125,6 +127,14 @@ public class Pawn extends CheckersPiece{
 	@Override
 	String getName() {
 		return name; 
+	}
+	
+
+	public boolean hasMoved(){
+		return isMoved;
+	}
+	public void moved(){
+		this.isMoved = true;
 	}
 
 }
