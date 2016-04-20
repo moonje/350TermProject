@@ -12,4 +12,9 @@ abstract class CheckersPiece {
 	abstract int getColor();
 	
 	abstract String getName();
+	 //Used for Checking Castling
+	abstract void moved();
+
+	abstract boolean hasMoved();
+
 }
