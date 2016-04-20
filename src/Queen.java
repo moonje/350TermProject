@@ -12,6 +12,7 @@ public class Queen extends CheckersPiece{
 	
 	/* Color of Piece */
 	private int color; 
+	public boolean isMoved;
 	
 	/******************************************************************
 	 * Creates the queen piece with the name "Queen" and the given color
@@ -21,6 +22,7 @@ public class Queen extends CheckersPiece{
 	public Queen(int color){
 		name = "Queen"; 
 		this.color = color; 
+		isMoved = false;
 	}
 	
 	/******************************************************************
@@ -211,5 +213,13 @@ public class Queen extends CheckersPiece{
 	@Override
 	String getName() {
 		return name; 
+	}
+	
+
+	public boolean hasMoved(){
+		return isMoved;
+	}
+	public void moved(){
+		this.isMoved = true;
 	}
 }
